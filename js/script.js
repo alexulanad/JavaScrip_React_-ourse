@@ -18,7 +18,7 @@ const personalMovieDB = {
 answerFilmsData(); // Вызов функции для запроса ответа пользователя по указанному количеству фильмов
 personalLevelViewFilms(); // Вызов функции для проверки уровня пользователя по просмотренным фильмам
 showMyDB(); // Вызов функции вывода информации по фильмам из базы данных
-
+writeYourGenres(); // Вызов функции запроса 3 любимых жанров фильмов
 /*
  * ФУНКЦИИ ПРОГРАММЫ
  */
@@ -73,5 +73,14 @@ function showMyDB() {
         console.log(personalMovieDB); // Выводим данные главной переменной (база фильмов)
     } else {
         console.log("Доступ закрыт");
+    }
+}
+
+// Функйия запроса ответов по 3 любимым жанрам
+function writeYourGenres() {
+    for (let i = 0; i < 3; i++) {
+        let genres;
+        genres = prompt(`Укажите Ваш любимый жанр под номером ${i+1}:`);
+        personalMovieDB.genres[i] = genres;
     }
 }
