@@ -5,9 +5,14 @@ let numberOfFilms; // хранит значение о количестве пр
 let lastFilm; // временая переменая цикла, каждую итерацию хранит названия просмотренного фильма
 let ratingFilm; // временная переменная цикла, каждую итерацию хранит значение рейтингка фильма
 
-do {
-    numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "0");
-} while (numberOfFilms == "" || numberOfFilms <= 0);
+function answerNumberOfFilms() {
+    do {
+        numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "1");
+    } while (numberOfFilms == "" || numberOfFilms <= 0 || isNaN(numberOfFilms));
+}
+
+answerNumberOfFilms();
+console.log(numberOfFilms);
 
 // Главная переменная, выполняющая роль базы данных о просмотренных фильмах
 const personalMovieDB = {
