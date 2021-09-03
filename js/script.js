@@ -11,7 +11,7 @@ const personalMovieDB = {
     movies: {}, // коллекция фильмов с их названиями, в качестве ключа и рейтингом, в качестве значения
     actors: {}, 
     genres: [],
-    private: true, // свойсвто определяет доступ к базе фильмо, если false - доступ открыт
+    private: false, // свойсвто определяет доступ к базе фильмо, если false - доступ открыт
     // Функция для запроса данных от пользователя о количестве просмотренных им фильмов
     answerNumberOfFilms: function() {
         do {
@@ -68,11 +68,11 @@ const personalMovieDB = {
     },
     // Функция запроса ответов по 3 любимым жанрам
     writeYourGenres: function () {
-            let genres = "";
+            let genres;
             do {
-                let genres = prompt("Укажите Ваши любимые жанры через запятую:");
+                genres = prompt("Укажите Ваши любимые жанры через запятую:").toLowerCase();
             } while (genres == null || genres == "");
-            personalMovieDB.genres = genres.split(", ");
+            personalMovieDB.genres = genres.split(", ").sort();
     },
     toggleVisibleMyDB: function() {
         if (personalMovieDB.private) {
