@@ -57,6 +57,9 @@ const personalMovieDB = {
     showMyDB: function(privat) {
         if (!privat) { // Если personalMovieDB.private не true тогда выводит базу данных 
             console.log(personalMovieDB); // Выводим данные главной переменной (база фильмов)            
+            personalMovieDB.genres.forEach(function(item, i) {
+                console.log(`Любимый жанр № ${i+1} - это ${item}.`);
+            });
         } else {
             console.log("Доступ закрыт");
         }
