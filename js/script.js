@@ -2,8 +2,8 @@
 
 
 //let numberOfFilms; // хранит значение о количестве просмотренных фильмов
-let lastFilm; // временая переменая цикла, каждую итерацию хранит названия просмотренного фильма
-let ratingFilm; // временная переменная цикла, каждую итерацию хранит значение рейтингка фильма
+// let lastFilm; // временая переменая цикла, каждую итерацию хранит названия просмотренного фильма
+// let ratingFilm; // временная переменная цикла, каждую итерацию хранит значение рейтингка фильма
 
 // Главная переменная, выполняющая роль базы данных о просмотренных фильмах
 const personalMovieDB = {
@@ -21,6 +21,8 @@ const personalMovieDB = {
     // Функция для опроса пользователя об указанных им просмотренных фильмах и рейтинге
     answerFilmsData: function () {
         for (let i = 0; i < personalMovieDB.count; i++) {
+            let lastFilm;
+            let ratingFilm;
             do {
                 lastFilm = prompt("Введите название просмотренного фильма:", "");
                 if (lastFilm == null) {
@@ -31,7 +33,7 @@ const personalMovieDB = {
                     alert("Название фильма слишком длинное (больше 50 символов)");
                 }
             } while (lastFilm == null || lastFilm == "" || lastFilm.length >= 50);    
-            
+
             do {
                 ratingFilm = +prompt("Укажите рейтинг фильма от 1.0 до 10:", "");
                 if (ratingFilm > 10.0) {
@@ -82,9 +84,9 @@ const personalMovieDB = {
     }
 };
 
-// personalMovieDB.answerNumberOfFilms(); // Вызов функции запроса данных о количестве просмотренных фильмов
-// personalMovieDB.answerFilmsData(); // Вызов функции для запроса ответа пользователя по указанному количеству фильмов
-// personalMovieDB.personalLevelViewFilms(); // Вызов функции для проверки уровня пользователя по просмотренным фильмам
+personalMovieDB.answerNumberOfFilms(); // Вызов функции запроса данных о количестве просмотренных фильмов
+personalMovieDB.answerFilmsData(); // Вызов функции для запроса ответа пользователя по указанному количеству фильмов
+personalMovieDB.personalLevelViewFilms(); // Вызов функции для проверки уровня пользователя по просмотренным фильмам
 personalMovieDB.writeYourGenres(); // Вызов функции запроса 3 любимых жанров фильмов
 personalMovieDB.toggleVisibleMyDB(personalMovieDB.private);
 personalMovieDB.showMyDB(personalMovieDB.private); // Вызов функц вывода базы данных
