@@ -69,10 +69,13 @@ const personalMovieDB = {
     // Функция запроса ответов по 3 любимым жанрам
     writeYourGenres: function () {
             let genres;
-            do {
-                genres = prompt("Укажите Ваши любимые жанры через запятую:").toLowerCase();
+            do {                
+                genres = prompt("Укажите Ваши любимые жанры через запятую:");
+                if (genres == null || genres == "") {
+                    console.log("Вы ввели неверные данные или не ввели вообще");
+                }                              
             } while (genres == null || genres == "");
-            personalMovieDB.genres = genres.split(", ").sort();
+            personalMovieDB.genres = genres.toLowerCase().split(", ").sort();
     },
     toggleVisibleMyDB: function() {
         if (personalMovieDB.private) {
