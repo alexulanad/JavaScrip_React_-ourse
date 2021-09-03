@@ -56,7 +56,7 @@ const personalMovieDB = {
     // Функция проверки приватности базы данных
     showMyDB: function(privat) {
         if (!privat) { // Если personalMovieDB.private не true тогда выводит базу данных 
-            console.log(personalMovieDB); // Выводим данные главной переменной (база фильмов)
+            console.log(personalMovieDB); // Выводим данные главной переменной (база фильмов)            
         } else {
             console.log("Доступ закрыт");
         }
@@ -64,7 +64,10 @@ const personalMovieDB = {
     // Функция запроса ответов по 3 любимым жанрам
     writeYourGenres: function () {
         for (let i = 0; i < 3; i++) {
+            do {
             personalMovieDB.genres[i] = prompt(`Укажите Ваш любимый жанр под номером ${i+1}:`);
+            } while (personalMovieDB.genres[i] == null || personalMovieDB.genres[i] == "");
+            //personalMovieDB.genres[i] = prompt(`Укажите Ваш любимый жанр под номером ${i+1}:`);
         }
     },
     toggleVisibleMyDB: function(privat) {
@@ -79,6 +82,6 @@ const personalMovieDB = {
 // personalMovieDB.answerNumberOfFilms(); // Вызов функции запроса данных о количестве просмотренных фильмов
 // personalMovieDB.answerFilmsData(); // Вызов функции для запроса ответа пользователя по указанному количеству фильмов
 // personalMovieDB.personalLevelViewFilms(); // Вызов функции для проверки уровня пользователя по просмотренным фильмам
-//personalMovieDB.writeYourGenres(); // Вызов функции запроса 3 любимых жанров фильмов
+personalMovieDB.writeYourGenres(); // Вызов функции запроса 3 любимых жанров фильмов
 personalMovieDB.toggleVisibleMyDB(personalMovieDB.private);
 personalMovieDB.showMyDB(personalMovieDB.private); // Вызов функц вывода базы данных
