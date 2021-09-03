@@ -75,8 +75,8 @@ const personalMovieDB = {
             //personalMovieDB.genres[i] = prompt(`Укажите Ваш любимый жанр под номером ${i+1}:`);
         }
     },
-    toggleVisibleMyDB: function(privat) {
-        if (privat) {
+    toggleVisibleMyDB: function() {
+        if (personalMovieDB.private) {
             personalMovieDB.private = false;
         } else {
             personalMovieDB.private = true;
@@ -88,5 +88,5 @@ personalMovieDB.answerNumberOfFilms(); // Вызов функции запрос
 personalMovieDB.answerFilmsData(); // Вызов функции для запроса ответа пользователя по указанному количеству фильмов
 personalMovieDB.personalLevelViewFilms(); // Вызов функции для проверки уровня пользователя по просмотренным фильмам
 personalMovieDB.writeYourGenres(); // Вызов функции запроса 3 любимых жанров фильмов
-personalMovieDB.toggleVisibleMyDB(personalMovieDB.private);
+personalMovieDB.toggleVisibleMyDB();
 personalMovieDB.showMyDB(personalMovieDB.private); // Вызов функц вывода базы данных
