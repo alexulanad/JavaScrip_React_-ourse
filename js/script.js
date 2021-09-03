@@ -59,7 +59,7 @@ const personalMovieDB = {
     showMyDB: function(privat) {
         if (!privat) { // Если personalMovieDB.private не true тогда выводит базу данных 
             console.log(personalMovieDB); // Выводим данные главной переменной (база фильмов)            
-            personalMovieDB.genres.forEach(function(item, i) {
+            personalMovieDB.genres.forEach((item, i) => { // стрелочная функция
                 console.log(`Любимый жанр № ${i+1} - это ${item}.`);
             });
         } else {
@@ -68,12 +68,11 @@ const personalMovieDB = {
     },
     // Функция запроса ответов по 3 любимым жанрам
     writeYourGenres: function () {
-        for (let i = 0; i < 3; i++) {
+            let genres = "";
             do {
-            personalMovieDB.genres[i] = prompt(`Укажите Ваш любимый жанр под номером ${i+1}:`);
-            } while (personalMovieDB.genres[i] == null || personalMovieDB.genres[i] == "");
-            //personalMovieDB.genres[i] = prompt(`Укажите Ваш любимый жанр под номером ${i+1}:`);
-        }
+                let genres = prompt("Укажите Ваши любимые жанры через запятую:");
+            } while (genres == null || genres == "");
+            personalMovieDB.genres = genres.split(", ");
     },
     toggleVisibleMyDB: function() {
         if (personalMovieDB.private) {
@@ -84,9 +83,9 @@ const personalMovieDB = {
     }
 };
 
-personalMovieDB.answerNumberOfFilms(); // Вызов функции запроса данных о количестве просмотренных фильмов
-personalMovieDB.answerFilmsData(); // Вызов функции для запроса ответа пользователя по указанному количеству фильмов
-personalMovieDB.personalLevelViewFilms(); // Вызов функции для проверки уровня пользователя по просмотренным фильмам
+// personalMovieDB.answerNumberOfFilms(); // Вызов функции запроса данных о количестве просмотренных фильмов
+// personalMovieDB.answerFilmsData(); // Вызов функции для запроса ответа пользователя по указанному количеству фильмов
+// personalMovieDB.personalLevelViewFilms(); // Вызов функции для проверки уровня пользователя по просмотренным фильмам
 personalMovieDB.writeYourGenres(); // Вызов функции запроса 3 любимых жанров фильмов
-personalMovieDB.toggleVisibleMyDB();
+// personalMovieDB.toggleVisibleMyDB();
 personalMovieDB.showMyDB(personalMovieDB.private); // Вызов функц вывода базы данных
